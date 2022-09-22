@@ -8,17 +8,17 @@ from relief_worker.user import get_current_user
 router = APIRouter()
 
 
-@router.post("/search")
+@router.post("/search", response_model=list[schemas.Shift])
 def view_company_shifts(filter, db: Session = Depends(get_db)):
     ...
 
 
-@router.put("/create")
+@router.put("/create", response_model=schemas.Shift)
 def create_shift(shift, db: Session = Depends(get_db)):
     ...
 
 
-@router.get("/{shift_id}")
+@router.get("/{shift_id}", response_model=schemas.Shift)
 def view_shift(shift_id: str, db: Session = Depends(get_db)):
     ...
 

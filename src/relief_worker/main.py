@@ -12,19 +12,16 @@ models.Base.metadata.create_all(bind=db.engine)
 app = FastAPI()
 app.include_router(
     company.router,
-    dependencies=[Depends(verify_key), Depends(verify_token)],
     prefix="/company",
     tags=["company"],
 )
 app.include_router(
     shifts.router,
-    dependencies=[Depends(verify_key), Depends(verify_token)],
     prefix="/shifts",
     tags=["shifts"],
 )
 app.include_router(
     user.router,
-    dependencies=[Depends(verify_key), Depends(verify_token)],
     prefix="/user",
     tags=["user"],
 )

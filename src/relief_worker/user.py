@@ -22,17 +22,17 @@ def register():
     ...
 
 
-@router.get("/profile/{user_id}")
+@router.get("/profile/{user_id}", response_model=schemas.User)
 def view_profile(user_id: str, db: Session = Depends(get_db)):
     ...
 
 
-@router.post("/profile/{user_id}/edit")
+@router.post("/profile/{user_id}/edit", response_model=schemas.User)
 def edit_profile(user_id: str, db: Session = Depends(get_db)):
     ...
 
 
-@router.get("/profile/{user_id}/shifts")
+@router.get("/profile/{user_id}/shifts", response_model=list[schemas.Shift])
 def view_shifts(user_id: str, db: Session = Depends(get_db)):
     ...
 
